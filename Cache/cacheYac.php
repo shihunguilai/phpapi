@@ -60,7 +60,7 @@ class CacheYac
     {
         if(!$this->have_extension){return false;}
         array_walk($kvs,function(&$val){
-            $val = serialize($val);
+            $val = base64_encode(gzcompress(serialize($val)));
         });
         if(is_int($ttl) && $ttl){
             return  $this->m->set($kvs,$ttl);
@@ -81,7 +81,7 @@ class CacheYac
             return unserialize($tp);
         }elseif (is_array($name)) {
             array_walk($tp,function(&$val){
-                $val = unserialize($val);
+                $val = unserialize(gzuncompress(base64_decode($val)));
             });
             return $tp;
         }
