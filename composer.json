@@ -1,0 +1,14 @@
+{
+    "name": "shihunguilai/cliff",
+    "description": "cliff`s php api",
+    "authors": [
+        {
+            "name": "cliff",
+            "email": "1058462838@qq.com"
+        }
+    ],
+    "require": {
+	"guzzlehttp/guzzle": "^6.2"	
+    }
+
+}
