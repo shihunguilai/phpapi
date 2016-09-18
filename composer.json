@@ -1,14 +1,13 @@
 {
-    "name": "shihunguilai/cliff",
-    "description": "cliff`s php api",
-    "authors": [
-        {
-            "name": "cliff",
-            "email": "1058462838@qq.com"
-        }
-    ],
-    "require": {
-	"guzzlehttp/guzzle": "^6.2"	
+  "name": "overfalse/phpapi",
+  "description": "cliff zhang`s php api",
+  "authors": [
+    {
+      "name": "cliff zhang",
+      "email": "1058462838@qq.com"
     }
-
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "^6.2"
+  }
 }
