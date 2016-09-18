@@ -1,5 +1,5 @@
 {
-  "name": "overfalse/phpapi",
+  "name": "shihunguilai/phpapi",
   "description": "cliff zhang`s php api",
   "authors": [
     {
@@ -9,5 +9,18 @@
   ],
   "require": {
     "guzzlehttp/guzzle": "^6.2"
+  },
+  "require-dev":{
+    "phpunit/phpunit": "5.5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "shihunguilai\\phpapi\\": "src/"
+    }
+  },
+  "audoload-dev": {
+    "psr-4": {
+      "shihunguilai\\phpapi": "src/"
+    }
   }
 }

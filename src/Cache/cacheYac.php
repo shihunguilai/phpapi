@@ -1,13 +1,13 @@
 <?php
-namespace Cliff\Cache;
-use cliff\Util\ApiUtil;
+namespace shihunguilai\phpapi\Cache;
+use shihunguilai\phpapi\Util\ApiUtil;
 
 /**
  * Created by PhpStorm.
  * User: clff zhang
  */
 
-class CacheYac
+class cacheYac
 {
     private $have_extension = false;
     private $cache_pre = '';

@@ -1,5 +1,5 @@
 <?php
-namespace cliff\Util;
+namespace shihunguilai\phpapi\Util;
 /**
  *
  */
