@@ -20,7 +20,7 @@
   },
   "audoload-dev": {
     "psr-4": {
-      "shihunguilai\\phpapi": "src/"
+      "shihunguilai\\phpapi": "tests/"
     }
   }
 }
