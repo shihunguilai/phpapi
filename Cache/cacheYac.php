@@ -1,5 +1,7 @@
 <?php
 namespace Cliff\Cache;
+use cliff\Util\ApiUtil;
+
 /**
  * Created by PhpStorm.
  * User: clff zhang
@@ -43,7 +45,7 @@ class CacheYac
     public function set($name,$value,$ttl = 0)
     {
         if(!$this->have_extension){return false;}
-        $value = serialize($value);
+        $value = ApiUtil::myserialize($value);
         if(is_int($ttl) && $ttl){
             return $this->m->set($name,$value,$ttl);
         }
@@ -60,7 +62,7 @@ class CacheYac
     {
         if(!$this->have_extension){return false;}
         array_walk($kvs,function(&$val){
-            $val = base64_encode(gzcompress(serialize($val)));
+            $val = ApiUtil::myserialize($val);
         });
         if(is_int($ttl) && $ttl){
             return  $this->m->set($kvs,$ttl);
@@ -78,10 +80,10 @@ class CacheYac
         if(!$this->have_extension){return null;}
         $tp = $this->m->get($name);
         if(is_string($name)){
-            return unserialize($tp);
+            return ApiUtil::myunserialize($tp);
         }elseif (is_array($name)) {
             array_walk($tp,function(&$val){
-                $val = unserialize(gzuncompress(base64_decode($val)));
+                $val = ApiUtil::myunserialize($val);
             });
             return $tp;
         }
