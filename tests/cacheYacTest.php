@@ -8,26 +8,33 @@ use shihunguilai\phpapi\Cache\cacheYac;
 class cacheYacTest extends \PHPUnit_Framework_TestCase
 {
 
+    public function setUp()
+    {
+      if(!extension_loaded('yac')){
+        $this->markTestSkipped('no yac extension');
+      }
+    }
+
     public function testYacExt()
     {
-      $this->assertTrue(!extension_loaded('yac'));
+      $this->assertTrue(extension_loaded('yac'));
     }
 
 
-    // function testGetInstance()
-    // {
-    //     $a = cacheYac::getInstance();
-    //     $b = cacheYac::getInstance();
-    //     $this->assertEquals($a,$b);
-    // }
-    //
-    // function testSet()
-    // {
-    //     $a = 'luck';
-    //     $name = 'aa';
-    //     cacheYac::getInstance()->set($name,$a);
-    //     $this->assertEquals($a,cacheYac::getInstance()->get($name));
-    // }
+    function testGetInstance()
+    {
+        $a = cacheYac::getInstance();
+        $b = cacheYac::getInstance();
+        $this->assertEquals($a,$b);
+    }
+
+    function testSet()
+    {
+        $a = 'luck';
+        $name = 'aa';
+        cacheYac::getInstance()->set($name,$a);
+        $this->assertEquals($a,cacheYac::getInstance()->get($name));
+    }
 
 
 
