@@ -61,9 +61,12 @@ class cacheYac
     public function mSet(array $kvs,$ttl = 0)
     {
         if(!$this->have_extension){return false;}
-        array_walk($kvs,function(&$val){
-            $val = ApiUtil::myserialize($val);
-        });
+        // array_walk($kvs,function(&$val){
+        //     $val = ApiUtil::myserialize($val);
+        // });
+        $kvs = array_map(function($v){
+          return ApiUtil::myserialize($v);
+        }, $kvs);
         if(is_int($ttl) && $ttl){
             return  $this->m->set($kvs,$ttl);
         }
@@ -82,9 +85,12 @@ class cacheYac
         if(is_string($name)){
             return ApiUtil::myunserialize($tp);
         }elseif (is_array($name)) {
-            array_walk($tp,function(&$val){
-                $val = ApiUtil::myunserialize($val);
-            });
+            // array_walk($tp,function(&$val){
+            //     $val = ApiUtil::myunserialize($val);
+            // });
+            $tp = array_map(function($v){
+              return ApiUtil::myunserialize($v);
+            }, $tp);
             return $tp;
         }
     }

@@ -36,6 +36,19 @@ class cacheYacTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($a,cacheYac::getInstance()->get($name));
     }
 
+    public function testmSet()
+    {
+      $da = array(
+        "dummy" => "foo",
+        "dummy2" => "foo1",
+      );
+
+      cacheYac::getInstance()->mSet($da);
+
+      $this->assertEquals(cacheYac::getInstance()->get(array_keys($da)),$da);
+
+    }
+
 
 
 }
