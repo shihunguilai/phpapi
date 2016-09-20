@@ -41,7 +41,7 @@ class cacheYacTest extends \PHPUnit_Framework_TestCase
     public function testmSet()
     {
         $da = [
-        'dummy'  => 'foo',
+        'dummy' => 'foo',
         'dummy2' => 'foo1',
       ];
 
