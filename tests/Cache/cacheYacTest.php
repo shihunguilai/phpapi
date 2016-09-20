@@ -1,8 +1,6 @@
 <?php
 
-namespace shihunguilai\phpapi;
-
-use shihunguilai\phpapi\Cache\cacheYac;
+namespace shihunguilai\phpapi\Cache;
 
 class cacheYacTest extends \PHPUnit_Framework_TestCase
 {
@@ -62,7 +60,7 @@ class cacheYacTest extends \PHPUnit_Framework_TestCase
 
     public function testDetail()
     {
-        print_r(cacheYac::getInstance()->detail());
+        $this->assertNotNull(cacheYac::getInstance()->detail());
     }
 
     public function testClear()

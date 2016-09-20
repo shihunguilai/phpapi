@@ -4,6 +4,14 @@ namespace shihunguilai\phpapi\Util;
 
 class FileUtil
 {
+    /**
+     * [exportExcel description].
+     *
+     * @param [type]              $file_name [description]
+     * @param [Array | Generator] $list      [description]
+     *
+     * @return [type] [description]
+     */
     public static function exportExcel($file_name, $list)
     {
         $filename = $file_name.'-'.date('YmdHis');
