@@ -12,24 +12,35 @@ class FileUtil
      *
      * @return [type] [description]
      */
-    public static function exportExcel($file_name, $list)
+    public static function exportCsv($file_name, $list)
     {
         $filename = $file_name.'-'.date('YmdHis');
-        header('Cache-Control: public');
-        header('Pragma: public');
-        header('Content-Type:application/vnd.ms-excel');
+        if (php_sapi_name() == 'cli') {
+            $ff = "./{$file_name}.csv";
+            file_put_contents($ff, chr(0xEF).chr(0xBB).chr(0xBF));
+            $str = '';
+            foreach ($list as $v) {
+                $tmp = array();
+                $tmp = array_map(array(__CLASS__, 'dealExportString'), $v);
+                $str .= implode(',', $tmp)."\n";
+            }
+            file_put_contents($ff, $str, FILE_APPEND);
+        } else {
+            header('Cache-Control: public');
+            header('Pragma: public');
+            header('Content-Type:application/vnd.ms-excel');
 
-        header("Content-Disposition:attachment;filename={$filename}.csv");
-        echo chr(0xEF).chr(0xBB).chr(0xBF);
+            header("Content-Disposition:attachment;filename={$filename}.csv");
+            echo chr(0xEF).chr(0xBB).chr(0xBF);
 
-        $str = '';
-        foreach ($list as $v) {
-            $tmp = array();
-            $tmp = array_map(array(__CLASS__, 'dealExportString'), $v);
-            $str .= implode(',', $tmp)."\n";
+            $str = '';
+            foreach ($list as $v) {
+                $tmp = array();
+                $tmp = array_map(array(__CLASS__, 'dealExportString'), $v);
+                $str .= implode(',', $tmp)."\n";
+            }
+            echo $str;
         }
-        echo $str;
-        exit;
     }
 
     public static function dealExportString($str)
