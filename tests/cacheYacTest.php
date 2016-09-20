@@ -15,6 +15,12 @@ class cacheYacTest extends \PHPUnit_Framework_TestCase
       }
     }
 
+
+    public function tearDown()
+    {
+      cacheYac::getInstance()->clear();
+    }
+
     public function testYacExt()
     {
       $this->assertTrue(extension_loaded('yac'));
@@ -48,6 +54,33 @@ class cacheYacTest extends \PHPUnit_Framework_TestCase
       $this->assertEquals(cacheYac::getInstance()->get(array_keys($da)),$da);
 
     }
+
+    public function testRm()
+    {
+        $name = 'a';
+        $value = 'b';
+        cacheYac::getInstance()->set($name,$value);
+        $this->assertEquals(cacheYac::getInstance()->get($name),$value);
+        cacheYac::getInstance()->rm($name);
+        $this->assertFalse(cacheYac::getInstance()->get($name));
+    }
+
+    public function testDetail()
+    {
+        print_r(cacheYac::getInstance()->detail());
+    }
+
+    function testClear()
+    {
+        $name = 'a';
+        $value = 'b';
+        cacheYac::getInstance()->set($name,$value);
+        cacheYac::getInstance()->clear();
+        $dd = cacheYac::getInstance()->detail();
+        $this->assertEquals(0,$dd['slots_used']);
+    }
+
+
 
 
 

@@ -82,6 +82,7 @@ class cacheYac
     {
         if(!$this->have_extension){return null;}
         $tp = $this->m->get($name);
+        if(!$tp || empty($tp)){return $tp;}
         if(is_string($name)){
             return ApiUtil::myunserialize($tp);
         }elseif (is_array($name)) {
