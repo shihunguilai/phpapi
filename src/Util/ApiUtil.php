@@ -13,7 +13,6 @@ class ApiUtil
    */
   public static function myserialize($data)
   {
-
       return base64_encode(gzcompress(serialize($data)));
   }
 
