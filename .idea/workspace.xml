@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="050b8bed-542e-4817-9e60-343dfe41af42" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitattributes" afterPath="$PROJECT_DIR$/.gitattributes" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/format.sh" afterPath="$PROJECT_DIR$/bin/format.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/format.sh" afterPath="$PROJECT_DIR$/format.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Util/CsvIterator.php" afterPath="$PROJECT_DIR$/src/Util/CsvIterator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Http/request.php" afterPath="$PROJECT_DIR$/src/Http/request.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Http/response.php" afterPath="$PROJECT_DIR$/src/Http/response.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Util/FileUtil.php" afterPath="$PROJECT_DIR$/src/Util/FileUtil.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Cache/cacheYacTest.php" afterPath="$PROJECT_DIR$/tests/Cache/cacheYacTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Http/requestTest.php" afterPath="$PROJECT_DIR$/tests/Http/requestTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Util/FileUtilTest.php" afterPath="$PROJECT_DIR$/tests/Util/FileUtilTest.php" />
     </list>
     <ignored path="cliff.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,11 +50,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CsvIterator.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CsvIterator.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Util/CsvIterator.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
-              <caret line="31" column="81" selection-start-line="31" selection-start-column="81" selection-end-line="31" selection-end-column="81" />
+            <state relative-caret-position="594">
+              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApiUtil.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Util/ApiUtil.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -64,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="response.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="response.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Http/response.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+            <state relative-caret-position="675">
+              <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -374,12 +390,12 @@
       <workItem from="1474253075262" duration="2294000" />
       <workItem from="1474342846689" duration="4829000" />
       <workItem from="1474385194054" duration="910000" />
-      <workItem from="1474446186285" duration="2096000" />
+      <workItem from="1474446186285" duration="2664000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10853000" />
+    <option name="totallyTimeSpent" value="11421000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -589,14 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Util/ApiUtil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="572">
@@ -636,14 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Http/response.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Cache/cacheYacTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -670,8 +670,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Util/CsvIterator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="31" column="81" selection-start-line="31" selection-start-column="81" selection-end-line="31" selection-end-column="81" />
+        <state relative-caret-position="594">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util/ApiUtil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Http/response.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
           <folding />
         </state>
       </provider>
