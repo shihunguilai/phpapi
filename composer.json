@@ -20,5 +20,8 @@
     "psr-4": {
       "shihunguilai\\phpapi": "tests/"
     }
+  },
+  "require": {
+    "friendsofphp/php-cs-fixer": "^1.12"
   }
 }
