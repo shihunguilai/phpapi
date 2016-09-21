@@ -4,8 +4,11 @@ namespace shihunguilai\phpapi\Util;
 
 class FileUtil
 {
+    public static function getCsvGenerator($file)
+    {
+    }
     /**
-     * [exportExcel description].
+     * [exportCsv 导出csv文件].
      *
      * @param [type]              $file_name [description]
      * @param [Array | Generator] $list      [description]
