@@ -3,13 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="050b8bed-542e-4817-9e60-343dfe41af42" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/format.sh" afterPath="$PROJECT_DIR$/bin/format.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Http/request.php" afterPath="$PROJECT_DIR$/src/Http/request.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Http/response.php" afterPath="$PROJECT_DIR$/src/Http/response.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Util/FileUtil.php" afterPath="$PROJECT_DIR$/src/Util/FileUtil.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Cache/cacheYacTest.php" afterPath="$PROJECT_DIR$/tests/Cache/cacheYacTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Http/requestTest.php" afterPath="$PROJECT_DIR$/tests/Http/requestTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Util/FileUtilTest.php" afterPath="$PROJECT_DIR$/tests/Util/FileUtilTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/format.sh" afterPath="$PROJECT_DIR$/format.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Util/CsvIterator.php" afterPath="$PROJECT_DIR$/src/Util/CsvIterator.php" />
     </list>
     <ignored path="cliff.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,8 +47,8 @@
       <file leaf-file-name="CsvIterator.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Util/CsvIterator.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="682">
+              <caret line="31" column="81" selection-start-line="31" selection-start-column="81" selection-end-line="31" selection-end-column="81" />
               <folding />
             </state>
           </provider>
@@ -378,12 +374,12 @@
       <workItem from="1474253075262" duration="2294000" />
       <workItem from="1474342846689" duration="4829000" />
       <workItem from="1474385194054" duration="910000" />
-      <workItem from="1474446186285" duration="1157000" />
+      <workItem from="1474446186285" duration="2096000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9914000" />
+    <option name="totallyTimeSpent" value="10853000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -674,8 +670,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Util/CsvIterator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state relative-caret-position="682">
+          <caret line="31" column="81" selection-start-line="31" selection-start-column="81" selection-end-line="31" selection-end-column="81" />
           <folding />
         </state>
       </provider>
