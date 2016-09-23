@@ -2,7 +2,7 @@
 
 namespace shihunguilai\phpapi\Cache;
 
-class cacheYacTest extends \PHPUnit_Framework_TestCase
+class CacheYacTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {

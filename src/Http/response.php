@@ -2,7 +2,7 @@
 
 namespace shihunguilai\phpapi\Http;
 
-class response
+class Response
 {
     /**
      * 异步返回.
