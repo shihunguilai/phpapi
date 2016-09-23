@@ -2,10 +2,46 @@
 
 namespace shihunguilai\phpapi\Http;
 
-class request
+class Request
 {
-    private function __construct()
+    /**
+     * [is_ajax description].
+     *
+     * @return bool [description]
+     */
+    public static function is_ajax()
     {
+        return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 'xmlhttprequest' === strtolower($_SERVER['HTTP_X_REQUESTED_WITH']);
+    }
+
+    /**
+     * [is_post description].
+     *
+     * @return bool [description]
+     */
+    public static function is_post()
+    {
+        return 'post' === strtolower(self::getRequestMethod());
+    }
+
+    /**
+     * [is_get description].
+     *
+     * @return bool [description]
+     */
+    public static function is_get()
+    {
+        return 'get' === strtolower(self::getRequestMethod());
+    }
+
+    /**
+     * [getRequestMethod description].
+     *
+     * @return [type] [description] GET POST De
+     */
+    public static function getRequestMethod()
+    {
+        return $_SERVER['REQUEST_METHOD'];
     }
 
     public function get()
