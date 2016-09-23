@@ -2,7 +2,7 @@
 
 namespace shihunguilai\phpapi\Http;
 
-class RequestTest extends \PHPUnit_Framework_TestCase
+class requestTest extends \PHPUnit_Framework_TestCase
 {
     public function testAdd()
     {
