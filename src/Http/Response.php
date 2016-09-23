@@ -103,6 +103,3 @@ class Response
         }
     }
 }
-
-//  $rsp = new \Common\Qesponse();
-//  $rsp->out(200, 'ok',array('name'=>'及的咖啡接口的  ','info'=>array('t'=>time())),'json');

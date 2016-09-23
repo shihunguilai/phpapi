@@ -154,10 +154,3 @@ class Request
         return $res;
     }
 }
-
-// $url = 'http://cliff.com/Test/testQequest.php';
-// $param = array('a'=>'aaa','t'=>'ttt');
-// $file = array('pic'=>'../14564797566_130_220.jpg','pic2'=>'../14564797566_130_220.jpg');
-// $r = Request::postByCurl($url,$param,$file);
-// echo $r;
-// exit;
