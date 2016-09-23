@@ -4,10 +4,10 @@ namespace shihunguilai\phpapi\Http;
 
 class Request
 {
-
     /**
-     * [is_ajax description]
-     * @return boolean [description]
+     * [is_ajax description].
+     *
+     * @return bool [description]
      */
     public static function is_ajax()
     {
