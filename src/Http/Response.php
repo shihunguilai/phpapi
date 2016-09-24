@@ -23,8 +23,6 @@ class Response
      * @param array  $data [description]
      * @param int    $code [description]
      * @param string $msg  [description]
-     *
-     * @return [type] [description]
      */
     public static function outJson(array $data, $code = 0, $msg = 'success')
     {
@@ -37,8 +35,6 @@ class Response
      * @param array  $data [description]
      * @param int    $code [description]
      * @param string $msg  [description]
-     *
-     * @return [type] [description]
      */
     public static function outJsonp(array $data, $code = 0, $msg = 'success')
     {
@@ -62,7 +58,7 @@ class Response
         if ($format == 'json') {
             echo  json_encode($ret);
         } elseif ($format == 'jsonp') {
-            $jsonpCallback = empty($_GET['callback']) ? 'jsonpcallback' : $_GET['callback'];
+            $jsonpCallback = empty(filter_input(INPUT_GET, 'callback')) ? 'jsonpcallback' : filter_input(INPUT_GET, 'callback');
             echo htmlspecialchars($jsonpCallback).'('.json_encode($ret).')';
         }
 
@@ -83,10 +79,10 @@ class Response
     /**
      * 过滤掉   数据里 的 null  和 非 utf-8  编码的 数据.
      *
-     * @param unknown $data
-     *                      2016-2-29-下午3:13:59
+     * @param array $data
+     *                    2016-2-29-下午3:13:59
      */
-    public static function filter_out_data(&$data)
+    public static function filter_out_data(array &$data)
     {
         array_walk_recursive($data, array(__CLASS__, 'filter_fun'));
     }

@@ -10,7 +10,7 @@ class FileUtil
     /**
      * [exportCsv 导出csv文件].
      *
-     * @param [string]            $file_name [description]
+     * @param string              $file_name [description]
      * @param [Array | Generator] $list      [description]
      *
      * @return [null] [description]
