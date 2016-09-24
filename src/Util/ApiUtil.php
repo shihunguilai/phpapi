@@ -32,4 +32,36 @@ class ApiUtil
 
         return empty($arr) ? array() : $arr;
     }
+
+    final public static function formatTime($time)
+    {
+        if (!is_numeric($time)) {
+            $time = (string) strtotime($time);
+        }
+
+        $now = time();
+        if ($now < ($time + 60)) {
+            $s = $now - $time;
+            if ($s == 0) {
+                $s = 1;
+            }
+            $strtime = $s.'秒前';
+        } elseif ($now >= ($time + 60) && $now < ($time + 3600)) {
+            $strtime = ((int) (($now - $time) / 60)).'分前';
+        } elseif ($now >= ($time + 3600) && $now < ($time + 86400)) {
+            $strtime = ((int) (($now - $time) / 3600)).'小时前';
+        } elseif ($now >= ($time + 86400) && $now < ($time + 604800)) {
+            $strtime = ((int) (($now - $time) / 86400)).'天前';
+        } else {
+            if (empty($time)) {
+                $strtime = '15天前';
+            } elseif (date('Y', $time) == date('Y')) {
+                $strtime = date('m-d', $time);
+            } else {
+                $strtime = date('Y-m-d', $time);
+            }
+        }
+
+        return $strtime;
+    }
 }

@@ -2,6 +2,13 @@
 
 namespace shihunguilai\phpapi\Util;
 
+/**
+ * api 接口开发过程中 传输数据的 签名 和 验签.
+ *
+ * 2016年9月24日-下午5:11:30
+ *
+ * @author cliff zhang.<1058462838@qq.com>
+ */
 class ApiSign
 {
     private static $sign_salt = 'your sign salt';
