@@ -20,4 +20,16 @@ class ApiUtil
     {
         return unserialize(gzuncompress(base64_decode($data)));
     }
+
+    final public static function myExplode($str, $delimiter)
+    {
+        $ss = trim($str);
+        $ss = trim($ss, $delimiter);
+        if (empty($ss)) {
+            return array();
+        }
+        $arr = explode($delimiter, $str);
+
+        return empty($arr) ? array() : $arr;
+    }
 }
