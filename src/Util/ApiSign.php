@@ -22,9 +22,9 @@ class ApiSign
       */
      final public static function checkSign()
      {
-         $get = $_GET;
-         if ($_POST) {
-             $get = array_merge($_GET, $_POST);
+         $get = filter_input_array(INPUT_GET);
+         if (filter_input_array(INPUT_POST)) {
+             $get = array_merge($get, filter_input_array(INPUT_POST));
          }
 
          $str = '';
@@ -61,7 +61,6 @@ class ApiSign
           foreach ($arr as $v) {
               $str .= $v;
           }
-          $tk = '';
           $tk = md5(md5($str.self::$sign_salt));
 
           return $tk;

@@ -15,7 +15,7 @@ class CsvIterator implements \Iterator
     public function __construct($filename)
     {
         if (!file_exists($filename)) {
-            die($filename.'not exists');
+            throw new \Exception($filename.'not exists');
         }
         $this->fd = fopen($filename, 'r');
     }

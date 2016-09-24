@@ -11,14 +11,13 @@ class Request
 
     public static function is_winxin()
     {
-        return false !== strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger');
+        return false !== strpos(self::getUserAgent(), 'MicroMessenger');
     }
 
     public static function is_mobile()
     {
         if (
-            isset($_SERVER['HTTP_VIA'])
-            && stristr($_SERVER['HTTP_VIA'], 'wap')
+             stristr(filter_input(INPUT_SERVER, 'HTTP_VIA'), 'wap')
             ) {
             return true;
         }
@@ -29,17 +28,18 @@ class Request
             return true;
         }
 
-        if ((isset($_SERVER['HTTP_ACCEPT'])) and (strpos(strtolower($_SERVER['HTTP_ACCEPT']), 'application/vnd.wap.xhtml+xml') !== false)) {
+        if ((isset(filter_input(INPUT_SERVER, 'HTTP_ACCEPT'))) 
+            && (strpos(strtolower(filter_input(INPUT_SERVER, 'HTTP_ACCEPT')), 'application/vnd.wap.xhtml+xml') !== false)) {
             return true;
         }
 
-        if (isset($_SERVER['HTTP_X_WAP_PROFILE'])) {
+        if (isset(filter_input(INPUT_SERVER, 'HTTP_X_WAP_PROFILE'))) {
             return true;
         }
-        if (isset($_SERVER['HTTP_PROFILE'])) {
+        if (isset(filter_input(INPUT_SERVER, 'HTTP_PROFILE'))) {
             return true;
         }
-        $mobile_ua = strtolower(substr($_SERVER['HTTP_USER_AGENT'], 0, 4));
+        $mobile_ua = strtolower(substr(self::getUserAgent(), 0, 4));
         $mobile_agents = array(
                         'w3c ', 'acs-', 'alav', 'alca', 'amoi', 'audi', 'avan', 'benq', 'bird', 'blac',
                         'blaz', 'brew', 'cell', 'cldc', 'cmd-', 'dang', 'doco', 'eric', 'hipt', 'inno',
@@ -55,13 +55,10 @@ class Request
         if (in_array($mobile_ua, $mobile_agents)) {
             return true;
         }
-        if (strpos(strtolower($_SERVER['ALL_HTTP']), 'operamini') !== false) {
+        if (strpos(strtolower(filter_input(INPUT_SERVER, 'ALL_HTTP')), 'operamini') !== false) {
             return true;
         }
-//         if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']), 'windows') !== false) {
-//             return false;
-//         }
-        if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']), 'windows phone') !== false) {
+        if (strpos(strtolower(self::getUserAgent()), 'windows phone') !== false) {
             return true;
         }
 
@@ -69,7 +66,7 @@ class Request
     }
     public static function getUserAgent()
     {
-        return isset($_SERVER['HTTP_USER_AGENT']) ? strtolower($_SERVER['HTTP_USER_AGENT']) : null;
+        return  filter_input(INPUT_SERVER, 'HTTP_USER_AGENT');
     }
     /**
      * [is_ajax description].
@@ -78,7 +75,8 @@ class Request
      */
     public static function is_ajax()
     {
-        return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 'xmlhttprequest' === strtolower($_SERVER['HTTP_X_REQUESTED_WITH']);
+        return isset(filter_input(INPUT_SERVER, 'HTTP_X_REQUESTED_WITH')) 
+                    && 'xmlhttprequest' === filter_input(INPUT_SERVER, 'HTTP_X_REQUESTED_WITH');
     }
 
     /**
@@ -108,7 +106,7 @@ class Request
      */
     public static function getRequestMethod()
     {
-        return $_SERVER['REQUEST_METHOD'];
+        return filter_input(INPUT_SERVER, 'REQUEST_METHOD');
     }
 
     public function get()
@@ -121,7 +119,6 @@ class Request
 
     public static function getByFileGetContents($url, $param)
     {
-        $context = array();
         $context = array(
                 'http' => array(
                         'timeout' => 60,
@@ -132,7 +129,6 @@ class Request
         if (!empty($param)) {
             $url = $url.(strstr($url, '?') ? '&' : '?').http_build_query($param);
         }
-// 		echo $url;exit;
         $res = file_get_contents($url, false, $scc);
 
         return $res;
@@ -142,7 +138,6 @@ class Request
     {
         $data = http_build_query($param);
         $len = strlen($data);
-        $context = array();
 
         $header = 'Content-type: application/x-www-form-urlencoded'.PHP_EOL
                 ."Content-length:{$len}".PHP_EOL
@@ -179,7 +174,6 @@ class Request
         curl_setopt($ch, CURLOPT_TIMEOUT, 5);
         curl_setopt($ch, CURLOPT_HEADER, false);
 
-        $info = curl_getinfo($ch);
         $res = curl_exec($ch);
         curl_close($ch);
 
@@ -196,11 +190,7 @@ class Request
             foreach ($file as $k => $v) {
                 $param[$k.''] = '@'.realpath($v);
             }
-        } else {
-            // 			$param =  http_build_query($param);
-        }
-
-// 		var_dump($param);exit;
+        } 
 
         $ch = curl_init();
 
@@ -214,7 +204,6 @@ class Request
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
 
-        $info = curl_getinfo($ch);
         $res = curl_exec($ch);
         curl_close($ch);
 
