@@ -29,7 +29,6 @@ class Response
     public static function outJson(array $data, $code = 0, $msg = 'success')
     {
         self::out($data, $code, $msg, 'json');
-        exit;
     }
 
     /**
@@ -44,7 +43,6 @@ class Response
     public static function outJsonp(array $data, $code = 0, $msg = 'success')
     {
         self::out($data, $code, $msg, 'jsonp');
-        exit;
     }
 
     /**
@@ -56,6 +54,7 @@ class Response
     {
         self::filter_out_data($data);
 
+        $ret = array();
         $ret['errorCode'] = $code;
         $ret['errorMsg'] = $msg;
         $ret['data'] = $data;
@@ -92,7 +91,7 @@ class Response
         array_walk_recursive($data, array(__CLASS__, 'filter_fun'));
     }
 
-    private static function filter_fun(&$value, $key)
+    private static function filter_fun(&$value)
     {
         if ($value === null) {
             $value = '';

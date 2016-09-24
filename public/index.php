@@ -6,6 +6,7 @@ echo "<h1>welcome cliff zhang</h1>";
 
 $lf = "<br/>";
 
+echo Request::getUserAgent().$lf;
 echo Request::getRequestMethod().$lf;
 
 var_dump(Request::is_ajax()) ;
