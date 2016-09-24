@@ -7,9 +7,9 @@ class ApiUtil
     /**
    * [myserialize description].
    *
-   * @param  [mixed] $data [description]
+   * @param  mixed $data [description]
    *
-   * @return [string]       [description]
+   * @return  string      [description]
    */
   public static function myserialize($data)
   {
