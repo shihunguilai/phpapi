@@ -21,14 +21,20 @@ class ApiUtil
         return unserialize(gzuncompress(base64_decode($data)));
     }
 
-    /**
-     * [formatTime ].
-     *
-     * @param [type] $time [description]
-     *
-     * @return [type] [description]
-     */
-    public static function formatTime($time)
+
+    final public static function myExplode($str, $delimiter)
+    {
+        $ss = trim($str);
+        $ss = trim($ss, $delimiter);
+        if (empty($ss)) {
+            return array();
+        }
+        $arr = explode($delimiter, $str);
+
+        return empty($arr) ? array() : $arr;
+    }
+
+    final public static function formatTime($time)
     {
         if (!is_numeric($time)) {
             $time = (string) strtotime($time);
