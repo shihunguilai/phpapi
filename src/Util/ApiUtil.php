@@ -5,16 +5,17 @@ namespace shihunguilai\phpapi\Util;
 class ApiUtil
 {
     /**
-   * [myserialize description].
-   *
-   * @param  mixed $data [description]
-   *
-   * @return  string      [description]
-   */
-  public static function myserialize($data)
-  {
-      return base64_encode(gzcompress(serialize($data)));
-  }
+     * @param mixed $data
+     *
+     * @return string
+     *                2016年9月25日-上午1:08:25
+     *
+     * @author  cliff zhang.<1058462838@qq.com>
+     */
+    public static function myserialize($data)
+    {
+        return base64_encode(gzcompress(serialize($data)));
+    }
 
     public static function myunserialize($data)
     {
