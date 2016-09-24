@@ -21,7 +21,6 @@ class ApiUtil
         return unserialize(gzuncompress(base64_decode($data)));
     }
 
-
     final public static function myExplode($str, $delimiter)
     {
         $ss = trim($str);
