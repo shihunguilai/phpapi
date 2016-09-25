@@ -7,9 +7,11 @@
       "email": "1058462838@qq.com"
     }
   ],
-
+  "require":{
+    "php":">=5.3"
+  },
   "require-dev":{
-    "phpunit/phpunit": "5.5.*",
+    "phpunit/phpunit": "~4.8",
     "friendsofphp/php-cs-fixer": "^1.12"
   },
   "autoload": {

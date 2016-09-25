@@ -13,7 +13,7 @@ class cacheYacTest extends \PHPUnit_Framework_TestCase
 
     public function tearDown()
     {
-        cacheYac::getInstance()->clear();
+        CacheYac::getInstance()->clear();
     }
 
     public function testYacExt()
@@ -23,8 +23,8 @@ class cacheYacTest extends \PHPUnit_Framework_TestCase
 
     public function testGetInstance()
     {
-        $a = cacheYac::getInstance();
-        $b = cacheYac::getInstance();
+        $a = CacheYac::getInstance();
+        $b = CacheYac::getInstance();
         $this->assertEquals($a, $b);
     }
 
@@ -32,8 +32,8 @@ class cacheYacTest extends \PHPUnit_Framework_TestCase
     {
         $a = 'luck';
         $name = 'aa';
-        cacheYac::getInstance()->set($name, $a);
-        $this->assertEquals($a, cacheYac::getInstance()->get($name));
+        CacheYac::getInstance()->set($name, $a);
+        $this->assertEquals($a, CacheYac::getInstance()->get($name));
     }
 
     public function testmSet()
@@ -43,33 +43,33 @@ class cacheYacTest extends \PHPUnit_Framework_TestCase
         'dummy2' => 'foo1',
       ];
 
-        cacheYac::getInstance()->mSet($da);
+        CacheYac::getInstance()->mSet($da);
 
-        $this->assertEquals(cacheYac::getInstance()->get(array_keys($da)), $da);
+        $this->assertEquals(CacheYac::getInstance()->get(array_keys($da)), $da);
     }
 
     public function testRm()
     {
         $name = 'a';
         $value = 'b';
-        cacheYac::getInstance()->set($name, $value);
-        $this->assertEquals(cacheYac::getInstance()->get($name), $value);
-        cacheYac::getInstance()->rm($name);
-        $this->assertFalse(cacheYac::getInstance()->get($name));
+        CacheYac::getInstance()->set($name, $value);
+        $this->assertEquals(CacheYac::getInstance()->get($name), $value);
+        CacheYac::getInstance()->rm($name);
+        $this->assertFalse(CacheYac::getInstance()->get($name));
     }
 
     public function testDetail()
     {
-        $this->assertNotNull(cacheYac::getInstance()->detail());
+        $this->assertNotNull(CacheYac::getInstance()->detail());
     }
 
     public function testClear()
     {
         $name = 'a';
         $value = 'b';
-        cacheYac::getInstance()->set($name, $value);
-        cacheYac::getInstance()->clear();
-        $dd = cacheYac::getInstance()->detail();
+        CacheYac::getInstance()->set($name, $value);
+        CacheYac::getInstance()->clear();
+        $dd = CacheYac::getInstance()->detail();
         $this->assertEquals(0, $dd['slots_used']);
     }
 }
