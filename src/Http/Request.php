@@ -16,9 +16,7 @@ class Request
 
     public static function is_mobile()
     {
-        if (
-             stristr(filter_input(INPUT_SERVER, 'HTTP_VIA'), 'wap')
-            ) {
+        if (stristr(filter_input(INPUT_SERVER, 'HTTP_VIA'), 'wap')) {
             return true;
         }
 
