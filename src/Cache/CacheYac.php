@@ -9,7 +9,7 @@ use Yac;
  * Created by PhpStorm.
  * User: clff zhang.
  */
-class cacheYac
+class CacheYac
 {
     private $have_extension = false;
     private $cache_pre = '';
