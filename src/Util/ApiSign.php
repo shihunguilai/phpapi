@@ -13,56 +13,56 @@ class ApiSign
 {
     private static $sign_salt = 'your sign salt';
 
-     /**
-      * check sign.
-      *
-      * @return bool
-      * 2016年9月24日-下午4:48:02
-      * cliff zhang.<1058462838@qq.com>
-      */
-     final public static function checkSign()
-     {
-         $get = filter_input_array(INPUT_GET);
-         if (filter_input_array(INPUT_POST)) {
-             $get = array_merge($get, filter_input_array(INPUT_POST));
-         }
+    /**
+     * check sign.
+     *
+     * @return bool
+     *              2016年9月24日-下午4:48:02
+     *              cliff zhang.<1058462838@qq.com>
+     */
+    final public static function checkSign()
+    {
+        $get = filter_input_array(INPUT_GET);
+        if (filter_input_array(INPUT_POST)) {
+            $get = array_merge($get, filter_input_array(INPUT_POST));
+        }
 
-         $str = '';
-         krsort($get);
-         foreach ($get as $k => $v) {
-             if ($k != 'tk') {
-                 $str .= $v;
-             }
-         }
-         $tk = $get['tk'];
-         if ($tk != md5(md5($str.self::$sign_salt))) {
-             return false;
-         }
+        $str = '';
+        krsort($get);
+        foreach ($get as $k => $v) {
+            if ($k != 'tk') {
+                $str .= $v;
+            }
+        }
+        $tk = $get['tk'];
+        if ($tk != md5(md5($str.self::$sign_salt))) {
+            return false;
+        }
 
-         return true;
-     }
+        return true;
+    }
 
-      /**
-       * create sign.
-       *
-       * @param array $arr
-       *
-       * @return string
-       * 2016年9月24日-下午4:51:15
-       * cliff zhang.<1058462838@qq.com>
-       */
-      final public static function createSign($arr = array())
-      {
-          if (empty($arr)) {
-              return '';
-          }
-          krsort($arr);
-          $str = '';
-          foreach ($arr as $v) {
-              $str .= $v;
-          }
-          $tk = md5(md5($str.self::$sign_salt));
+    /**
+     * create sign.
+     *
+     * @param array $arr
+     *
+     * @return string
+     *                2016年9月24日-下午4:51:15
+     *                cliff zhang.<1058462838@qq.com>
+     */
+    final public static function createSign($arr = array())
+    {
+        if (empty($arr)) {
+            return '';
+        }
+        krsort($arr);
+        $str = '';
+        foreach ($arr as $v) {
+            $str .= $v;
+        }
+        $tk = md5(md5($str.self::$sign_salt));
 
-          return $tk;
-      }
+        return $tk;
+    }
 }
