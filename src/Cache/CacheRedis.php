@@ -21,9 +21,9 @@ class CacheRedis
      *              ******
      *              array(
      *              'host'=>'127.0.0.1',
-     'port'=>6379,
-     'timeout'=>false,
-     'persistent'=>false,
+     *'port'=>6379,
+     *'timeout'=>false,
+     *'persistent'=>false,
      * 'expire'=>0,
      * 'prefix'=>'',
      * 'persistent'=>false,
@@ -112,7 +112,7 @@ class CacheRedis
             $ttl = $this->option['expire'];
         }
         $key = $this->getRealKey($key);
-        $value = ApiUtil::myunserialize($value);
+        $value = ApiUtil::myserialize($value);
         if (is_int($ttl) && $ttl) {
             $res = $this->handler->setex($key, $ttl, $value);
         } else {
@@ -127,8 +127,19 @@ class CacheRedis
      * @param null  $ttl
      *                   User:cliff zhang
      */
-    public function mSet(array $kvs, $ttl = null)
+    public function mSet(array $kvs)
     {
+        if (empty($kvs)) {
+            return false;
+        }
+        $kvs_real = array_combine(
+            $this->getRealKey(array_keys($kvs)),
+            array_map(function ($v) {
+                return ApiUtil::myserialize($v);
+            }, array_values($kvs))
+            );
+
+        return $this->handler->mset($kvs_real);
     }
 
     /**
@@ -138,8 +149,12 @@ class CacheRedis
     public function get($key)
     {
         $key = $this->getRealKey($key);
-
-        return ApiUtil::myunserialize($this->handler->get($key));
+        $rs = $this->handler->get($key);
+        if ($rs) {
+            return ApiUtil::myunserialize($rs);
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -153,15 +168,31 @@ class CacheRedis
         }
         $key_r = $this->getRealKey($key);
         $v_r = $this->handler->mget($key_r);
+        if (empty($v_r)) {
+            return null;
+        }
         $rr = array_map(function ($v) {
+            if (!$v) {
+                return $v;
+            }
+
             return ApiUtil::myunserialize($v);
         }, $v_r);
 
         return array_combine($key, array_values($rr));
     }
 
+    /**
+     * @param string | array $key
+     *                            2016年9月27日-下午10:33:02
+     *
+     * @author  cliff zhang.<1058462838@qq.com>
+     */
     public function rm($key)
     {
+        if (empty($key)) {
+            return false;
+        }
         $key = $this->getRealKey($key);
 
         return $this->handler->del($key);
