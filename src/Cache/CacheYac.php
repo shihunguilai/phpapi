@@ -22,6 +22,10 @@ class CacheYac
         $this->init();
     }
 
+    private function __clone()
+    {
+    }
+
     private function init()
     {
         if (extension_loaded('yac')) {
