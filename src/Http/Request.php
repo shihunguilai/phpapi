@@ -26,7 +26,7 @@ class Request
             return true;
         }
 
-        if ((isset(filter_input(INPUT_SERVER, 'HTTP_ACCEPT')))
+        if ((isset(filter_input(INPUT_SERVER, 'HTTP_ACCEPT'))) 
             && (strpos(strtolower(filter_input(INPUT_SERVER, 'HTTP_ACCEPT')), 'application/vnd.wap.xhtml+xml') !== false)) {
             return true;
         }
@@ -73,7 +73,7 @@ class Request
      */
     public static function is_ajax()
     {
-        return isset(filter_input(INPUT_SERVER, 'HTTP_X_REQUESTED_WITH'))
+        return isset(filter_input(INPUT_SERVER, 'HTTP_X_REQUESTED_WITH')) 
                     && 'xmlhttprequest' === filter_input(INPUT_SERVER, 'HTTP_X_REQUESTED_WITH');
     }
 
@@ -188,7 +188,7 @@ class Request
             foreach ($file as $k => $v) {
                 $param[$k.''] = '@'.realpath($v);
             }
-        }
+        } 
 
         $ch = curl_init();
 
