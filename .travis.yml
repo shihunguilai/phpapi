@@ -7,6 +7,7 @@ php:
   - 7.1
 
 before_script:
+  - phpenv config-add myphp.ini
   - composer self-update
   - composer install --no-interaction --dev
   - composer dump-autoload --optimize
