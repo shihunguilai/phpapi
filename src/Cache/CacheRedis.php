@@ -101,6 +101,8 @@ class CacheRedis
             $ret = array_map(function ($v) {
                 return $this->option['prefix'].$v;
             }, $key);
+        } else {
+            $ret = $this->option['prefix'].$key;
         }
 
         return $ret;
@@ -124,8 +126,9 @@ class CacheRedis
 
     /**
      * @param array $kvs
-     * @param null  $ttl
-     *                   User:cliff zhang
+     *
+     * @return mixed
+     *               User:cliff zhang
      */
     public function mSet(array $kvs)
     {
@@ -144,7 +147,9 @@ class CacheRedis
 
     /**
      * @param string $key
-     *                    User:cliff zhang
+     *
+     * @return mixed
+     *               User:cliff zhang
      */
     public function get($key)
     {
@@ -159,7 +164,9 @@ class CacheRedis
 
     /**
      * @param array　$key
-     * User:cliff zhang
+     *
+     * @return mixed
+     *               User:cliff zhang
      */
     public function mGet($key)
     {
@@ -184,7 +191,9 @@ class CacheRedis
 
     /**
      * @param string | array $key
-     *                            2016年9月27日-下午10:33:02
+     *
+     * @return bool
+     *              2016年9月27日-下午10:33:02
      *
      * @author  cliff zhang.<1058462838@qq.com>
      */
