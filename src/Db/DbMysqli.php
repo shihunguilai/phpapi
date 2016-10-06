@@ -6,7 +6,7 @@ class DbMysqli
 {
     private $db_config;
     private $db;
-    private  static $instance;
+    private static $instance;
     private $lastSql;
 
     private function __construct()

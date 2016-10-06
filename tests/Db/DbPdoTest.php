@@ -18,7 +18,7 @@ class DbPdoTest extends \PHPUnit_Framework_TestCase
 
     public function testShowtables()
     {
-        $sql = <<<eof
+        $sql = <<<'eof'
         create table if not exists user(
           id int unsigned auto_increment key,
             username varchar(20) not null unique,
