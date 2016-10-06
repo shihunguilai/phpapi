@@ -8,6 +8,11 @@ class DbPdoTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
+        if (!class_exists('PDO')) {
+            $this->markTestSkipped(' no pdo extension');
+
+            return false;
+        }
         $config = array(
             'dns' => 'mysql:dbname=test;host=localhost;port=3306',
             'user' => 'root',
