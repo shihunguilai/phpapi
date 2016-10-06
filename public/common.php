@@ -10,5 +10,9 @@ ini_set('display_errors', 1);
 // MySession::start('redisini');
 // MySession::start('filesini');
 // MySession::start('redis');
+// MySession::start('memcache');
+// MySession::start('db');
+
+
 
 

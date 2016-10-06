@@ -10,6 +10,7 @@ echo "<h1>welcome cliff zhang</h1>";
 $lf = "<br/>";
 
 echo session_id().'-'.session_name();
+// session_destroy();exit;
 $_SESSION['aaaa'] = array('ll'=>'fjkdfjkd');
 
 echo '<hr>';
