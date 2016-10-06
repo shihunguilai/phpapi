@@ -5,29 +5,37 @@ namespace shihunguilai\phpapi\Http;
 class Request
 {
     /**
-     * 判断是否为  苹果系统访问
-     * @return boolean
-     * 2016年9月29日-下午8:17:03 
+     * 判断是否为  苹果系统访问.
+     *
+     * @return bool
+     *              2016年9月29日-下午8:17:03
+     *
      * @author  cliff zhang.<1058462838@qq.com>
      */
-    public static function is_Apple(){
+    public static function is_Apple()
+    {
         return false !== strpos(self::getUserAgent(), 'Mac OS X');
     }
     /**
      * 判断是否为 android 系统
-     * @return boolean
-     * 2016年9月29日-下午8:18:37 
+     *
+     * @return bool
+     *              2016年9月29日-下午8:18:37
+     *
      * @author  cliff zhang.<1058462838@qq.com>
      */
-    public static  function is_android(){
+    public static function is_android()
+    {
         return false !== strpos(self::getUserAgent(), 'Android');
     }
-    
+
     /**
-     * 判断是否 微博访问 
-     * @return boolean
-     * 
-     * 2016年9月29日-下午8:19:15 
+     * 判断是否 微博访问.
+     *
+     * @return bool
+     *
+     * 2016年9月29日-下午8:19:15
+     *
      * @author  cliff zhang.<1058462838@qq.com>
      */
     public static function is_weibo()
@@ -36,9 +44,11 @@ class Request
     }
 
     /**
-     * 判断是否 微信访问
-     * @return boolean
-     * 2016年9月29日-下午8:19:55 
+     * 判断是否 微信访问.
+     *
+     * @return bool
+     *              2016年9月29日-下午8:19:55
+     *
      * @author  cliff zhang.<1058462838@qq.com>
      */
     public static function is_winxin()
@@ -47,10 +57,12 @@ class Request
     }
 
     /**
-     * 判断是否 手机访问
-     * @return boolean
-     * 
-     * 2016年9月29日-下午8:20:22 
+     * 判断是否 手机访问.
+     *
+     * @return bool
+     *
+     * 2016年9月29日-下午8:20:22
+     *
      * @author  cliff zhang.<1058462838@qq.com>
      */
     public static function is_mobile()
@@ -65,15 +77,15 @@ class Request
             return true;
         }
 
-        if ((isset(filter_input(INPUT_SERVER, 'HTTP_ACCEPT'))) 
+        if ((null !== (filter_input(INPUT_SERVER, 'HTTP_ACCEPT')))
             && (strpos(strtolower(filter_input(INPUT_SERVER, 'HTTP_ACCEPT')), 'application/vnd.wap.xhtml+xml') !== false)) {
             return true;
         }
 
-        if (isset(filter_input(INPUT_SERVER, 'HTTP_X_WAP_PROFILE'))) {
+        if (null !== (filter_input(INPUT_SERVER, 'HTTP_X_WAP_PROFILE'))) {
             return true;
         }
-        if (isset(filter_input(INPUT_SERVER, 'HTTP_PROFILE'))) {
+        if (null !== (filter_input(INPUT_SERVER, 'HTTP_PROFILE'))) {
             return true;
         }
         $mobile_ua = strtolower(substr(self::getUserAgent(), 0, 4));
@@ -112,7 +124,7 @@ class Request
      */
     public static function is_ajax()
     {
-        return isset(filter_input(INPUT_SERVER, 'HTTP_X_REQUESTED_WITH')) 
+        return null !== (filter_input(INPUT_SERVER, 'HTTP_X_REQUESTED_WITH'))
                     && 'xmlhttprequest' === filter_input(INPUT_SERVER, 'HTTP_X_REQUESTED_WITH');
     }
 
@@ -227,7 +239,7 @@ class Request
             foreach ($file as $k => $v) {
                 $param[$k.''] = '@'.realpath($v);
             }
-        } 
+        }
 
         $ch = curl_init();
 
