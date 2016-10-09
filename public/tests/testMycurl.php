@@ -2,10 +2,17 @@
 require_once dirname(__DIR__).'/common.php';
 
 
-$url = '';
-$para = array();
-\shihunguilai\phpapi\Http\MyCurl::getCookies($url,$para,$cookies_file);
+//$url = 'http://***********/User/loginMobile/';
+//$para = array(
+//    'mobile'=>'********',
+//    'code'=>'***********',
+//);
+//$cookies_file = __DIR__.'/cookies.txt';
+//\shihunguilai\phpapi\Http\MyCurl::getCookies($url,$para,$cookies_file);
 
+//$url = 'http://*************/Index/haveNewMsg/';
+//$para = array();
+//var_dump( \shihunguilai\phpapi\Http\MyCurl::requestWithCookies($url,$para,$cookies_file));
 
 
 
