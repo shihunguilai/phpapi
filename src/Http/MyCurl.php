@@ -66,6 +66,7 @@ class MyCurl
         if (!empty($header)) {
             curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
         }
+        $ret = array();
         $ret['output'] = curl_exec($ch);
         $ret['info'] = curl_getinfo($ch);
         curl_close($ch);
@@ -97,6 +98,7 @@ class MyCurl
             CURLOPT_POSTFIELDS => $para,
 
         ));
+        $ret = array();
         $ret['output'] = curl_exec($ch);
         $ret['info'] = curl_getinfo($ch);
         curl_close($ch);
@@ -129,9 +131,10 @@ class MyCurl
                 CURLOPT_POSTFIELDS => $data,
                 CURLOPT_RETURNTRANSFER => 1,
             ));
-        if (!empty($header)) {
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-        }
+//        if (!empty($header)) {
+//            curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+//        }
+        $ret = array();
         $ret['output'] = curl_exec($ch);
         $ret['info'] = curl_getinfo($ch);
         curl_close($ch);
@@ -152,6 +155,7 @@ class MyCurl
             CURLOPT_FILE => $fp,
         ));
         curl_exec($ch);
+        $ret = array();
         $ret['output'] = $file_p;
         $ret['info'] = curl_getinfo($ch);
         fclose($fp);
@@ -191,6 +195,7 @@ class MyCurl
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_COOKIEFILE, $cookies_file);
 
+        $ret = array();
         $ret['output'] = curl_exec($ch);
         $ret['info'] = curl_getinfo($ch);
         curl_close($ch);
