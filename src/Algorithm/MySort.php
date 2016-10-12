@@ -171,7 +171,6 @@ class MySort
                 break;
             }
         }
-
         return $arr;
     }
 }
